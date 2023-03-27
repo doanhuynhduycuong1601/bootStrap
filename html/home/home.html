@@ -1,0 +1,83 @@
+<div class="banner-header">
+    <div class="row">
+        <div class="col-8 banner-header_left">
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <!--banner home-->
+                <div class="carousel-inner">
+                    <div class="carousel-item {{banner.active}}" data-bs-interval="2000"
+                        ng-repeat="banner in bannersHome">
+                        <img src="img/banner/{{banner.img}}" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <div class="carousel-indicators">
+                    <div ng-repeat="banner in bannersHome">
+                        <button type="button" data-bs-target="#carouselExampleInterval"
+                            data-bs-slide-to="{{banner.data_bs_slide_to}}" class="active"
+                            aria-label="{{banner.aria_label}}"></button>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="col-4 banner-header_right">
+            <a href="#!/detailProduct/3" class="row"><img src="img/banner/banner_header_4.webp" alt=""></a>
+            <a href="#!/detailProduct/12" class="row"><img src="img/banner/banner_header_5.webp" alt=""></a>
+        </div>
+    </div>
+</div>
+
+<!--article category-->
+<div style="margin-top: 20px;" class="banner-Button-Group">
+    <div class="row mb-3">
+        <div ng-repeat="category in $parent.categorys" class="col-2">
+            <a href="#!/searchProduct/{{category.id}}">
+                <img src="img/category/{{category.img}}" alt="">
+                <span class="row">{{category.name}}</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div ng-controller="offcanvasDetailProduct" style="margin-top: 30px;" class="home-product">
+    <h1 style="text-align: center;color: red;">Product</h1>
+    <div class="row">
+        <div class="col-2 mb-4" ng-repeat="product in $parent.$parent.products | limitTo : quantity : 0">
+            <div class="row">
+                <div class="card col-10 offset-1">
+                    <a href="#!/detailProduct/{{product.id}}">
+                        <img style="height: 100px;" src="img/product/{{product.img}}" class="card-img-top img-fluid" alt="...">
+                    </a>
+                    <div class="card-body">
+                        <div>{{product.name}}</div>
+                        <div class="d-flex justify-content-between">
+                            <div><i class="fa-solid fa-sack-dollar"></i>{{product.price}}</div>
+                            <div></div>
+                            <div>{{product.sold}}</div>
+                        </div>
+                        <div class="d-flex flex-row-reverse">
+                            <label ng-click="cart(product)" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
+                                aria-controls="offcanvasBottom"><i class="fa-solid fa-cart-shopping"></i></label>
+                        </div>
+                        <label ng-click="homeDetailProduct(product)" class="d-flex justify-content-center" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#staticBackdrop1" aria-controls="staticBackdrop">
+                            <i class="fa-regular fa-circle" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                data-bs-title="Detail this product"></i>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <button ng-show="quantity < 100" ng-click="viewAdd()" type="button" class="btn btn-primary btn-sm col-md-2 offset-5">Small button</button>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div style="height: 430px;margin: auto;" class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1"
+    id="staticBackdrop1" aria-labelledby="staticBackdropLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="staticBackdropLabel">Detail Product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="row">
+            <div class="col-8 row">
+                <img style="width: 80px;" class="col-7" src="img/store/1.png" alt="">
+                <label class="col-5">Shop</label>
+            </div>
+            <button class="col-4">Xem shop</button>
+        </div>
+        <div class="row">
+            <img src="img/product/{{reviewProduct.img}}" style="height: 150px;" class="col-12" alt="">
+        </div>
+        <div>Mã : {{reviewProduct.id}}</div>
+        <div>Name Product {{reviewProduct.name}}</div>
+        <div>Price {{reviewProduct.price}}</div>
+        <div>Quantity {{reviewProduct.quantity}}</div>
+        <div>Sold {{reviewProduct.sold}}</div>
+    </div>
+</div>

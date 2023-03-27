@@ -1,0 +1,125 @@
+<div class="container mb-3">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="turnover-tab" data-bs-toggle="tab" data-bs-target="#turnover-tab-pane"
+                type="button" role="tab" aria-controls="turnover-tab-pane" aria-selected="false">Thống kê</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="oder-tab" data-bs-toggle="tab" data-bs-target="#oder-tab-pane"
+                type="button" role="tab" aria-controls="oder-tab-pane" aria-selected="true">Order</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade" id="turnover-tab-pane" role="tabpanel" aria-labelledby="turnover-tab" tabindex="0">
+            <div class="row">
+                <select style="width: 400px;" class="form-select offset-4" aria-label="Default select example">
+                    <option selected>Today</option>
+                    <option value="1">Prev 14 days</option>
+                    <option value="2">Month</option>
+                    <option value="3">Year</option>
+                </select>
+                <table class="table table-bordered table-hover table-striped">
+                    <tr class="table-danger" style="text-align: center;">
+                        <th>ID Product</th>
+                        <th>Name Product</th>
+                        <th>Sold</th>
+                        <th>Turn over</th>
+                        <th>Tax</th>
+                        <th>Turn realistic</th>
+                    </tr>
+                    <tr>
+                        <td>P001</td>
+                        <td>Product 001</td>
+                        <td>20</td>
+                        <td>$1000</td>
+                        <td>10%</td>
+                        <td>$900</td>
+                    </tr>
+                    <tr>
+                        <td>P002</td>
+                        <td>Product 002</td>
+                        <td>30</td>
+                        <td>$12000</td>
+                        <td>50%</td>
+                        <td>$6000</td>
+                    </tr>
+                    <tr>
+                        <td>P003</td>
+                        <td>Product 003</td>
+                        <td>200</td>
+                        <td>$10000</td>
+                        <td>20%</td>
+                        <td>$8000</td>
+                    </tr>
+                    <tr>
+                        <td>P005</td>
+                        <td>Product 005</td>
+                        <td>20</td>
+                        <td>$1000</td>
+                        <td>10%</td>
+                        <td>$900</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <th colspan="2" id="1">Total :</th>
+                        <th colspan="4" id="2">1000</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div ng-controller="order" class="tab-pane fade show active" id="oder-tab-pane" role="tabpanel"
+            aria-labelledby="oder-tab" tabindex="0">
+            <div class="row mb-2">
+                <div style="text-align: center;" class="row mb-1">
+                    <div class="col-3">User</div>
+                    <div class="col-3">Image</div>
+                    <div class="col-3">Address</div>
+                    <div class="col-2">Time</div>
+                    <div class="col-1">Detail</div>
+                </div>
+
+                <div ng-repeat="order in orders" class="row user">
+                    <div class="row align-items-center
+                    align-items-center" data-bs-toggle="collapse" href="#order{{order.idBill}}" role="button"
+                        aria-expanded="false" ng-click="addDetailBill(order)">
+                        <div type="button" class="col-3 text-truncate" data-bs-toggle="tooltip" data-bs-placement="top"
+                            data-bs-custom-class="custom-tooltip" data-bs-title="{{order.user}}">
+                            {{order.user}}
+                        </div>
+                        <div class="col-3">
+                            <img style="height: 70px;" class="img-User" src="img/product/{{order.img}}" alt="">
+                        </div>
+                        <div class="col-3 text-truncate" data-bs-toggle="tooltip" data-bs-placement="top"
+                            data-bs-custom-class="custom-tooltip" data-bs-title="{{order.address}}">
+                            {{order.address}}
+                        </div>
+                        <div class="col-2 text-truncate" data-bs-toggle="tooltip" data-bs-placement="top"
+                            data-bs-custom-class="custom-tooltip" data-bs-title="{{order.time}}">
+                            {{order.time}}
+                        </div>
+                        <label style="text-align: center;" class="col-1 dropdown-toggle"></label>
+                    </div>
+                    <div class="collapse row" id="order{{order.idBill}}">
+                        <div class="card card-body mb-2" style="text-align: center;">
+                            <div class="row mb-2">
+                                <div class="col-3">Name</div>
+                                <div class="col-3">Img</div>
+                                <div class="col-3">Quantity</div>
+                                <div class="col-3">Price</div>
+                            </div>
+                            <div class="row mb-3 d-flex" ng-repeat="p in order.product">
+                                <a href="#!/detailProduct/{{p.idProduct}}" class="row detailProduct align-items-center">
+                                    <div class="col-3">{{p.name}}</div>
+                                    <div class="col-3">
+                                        <img class="img-detailProduct" src="img/product/{{p.img}}" alt="">
+                                    </div>
+                                    <div class="col-3">{{p.quantityBuy}}</div>
+                                    <div class="col-3">{{p.price}}</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div style="width: 700px;margin: 0px auto;height: 250px;" class="offcanvas offcanvas-bottom" tabindex="-1"
+    id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasBottomLabel">Product</h5>
+        <button id="cartAddProduct" type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body small card">
+        <div class="card-header row d-flex align-items-end">
+            <div class="col-3">
+                <img style="height: 100px;" src="img/product/{{reviewProduct.img}}" alt="">
+            </div>
+            <div class="offset-1 col-3">
+                <label>Price : {{reviewProduct.price}}</label>
+                <label>
+                    <span>Quantity : {{reviewProduct.quantity}}</span>
+                </label>
+            </div>
+        </div>
+        <!-- <div class="card-body row">
+            <div ng-repeat="s in listDetailProducts" class="col-4 row align-items-sm-center mb-1">
+                <img class="col-7" src="img/product/{{s.img}}" alt="">
+                <label class="col-5">{{s.size}}</label>
+            </div>
+        </div> -->
+        <div class="card-footer d-flex">
+            <div class="p-2 flex-grow-1">
+                <button ng-click="cartDecrease()"><i class="fa-solid fa-minus"></i></button>
+                <label for="">{{quantityBuy}}</label>
+                <button ng-click="cartIncrease()"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <button style="margin-right: 20px;" class="p-2"><i class="fa-solid fa-sack-dollar"></i></button>
+            <button ng-click="addProductEnterCart(reviewProduct,quantityBuy)" class="p-2"><i class="fa-solid fa-cart-shopping"></i></button>
+        </div>
+    </div>
+</div>

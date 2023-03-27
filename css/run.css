@@ -1,0 +1,73 @@
+.convenient-bar .left li>*{
+    color: white;
+}
+
+
+.convenient-bar .right li>*{
+    color: white;
+}
+
+.convenient-bar .right li>button:hover{
+    color: black;
+}
+
+.convenient-bar .right li>button:focus{
+    color: black;
+}
+
+
+.convenient-bar .below a{
+    font-size: 25px;
+    color: white;
+}
+
+.convenient-bar .below li{
+    margin-left: 45px;
+}
+
+.banner-header .banner-header_left img{
+    height: 300px;
+}
+
+.banner-header .banner-header_right>a>img{
+    height: 150px;
+}
+
+.banner-Button-Group>.row>div>a{
+    text-decoration: none;
+    color: black;
+}
+
+.banner-Button-Group>.row>div>a>span{
+    text-align: center;
+    justify-content: center;
+}
+
+.banner-Button-Group>.row>div>a>img{
+    height: 100px;
+    width: 100%;
+}
+
+
+#oder-tab-pane .user{
+    border: 2px solid black;
+}
+
+#oder-tab-pane .user .img-User{
+    height: 50px;
+}
+
+#oder-tab-pane .user .img-detailProduct{
+    height: 70px;
+}
+
+
+.detailProduct{
+    text-decoration: none;
+    color: black;
+}
+
+iframe[name=page] {
+    width: 100%;
+    height: 300px;
+}

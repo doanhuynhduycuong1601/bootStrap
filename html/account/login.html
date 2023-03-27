@@ -1,0 +1,30 @@
+<form name="frmLogin">
+    <div class="mb-4 row">
+        <label for="loginInputUser" class="col-2 col-form-label">User</label>
+        <div class="col-10">
+            <input style="width: 100%;" type="text" class="form-control" name="txtLoginUser" ng-model="loginUser"
+                even-loginuser>
+            <label class="col-form-label">{{errorLoginUser}}</label>
+        </div>
+    </div>
+
+    <div class="mb-4 row">
+        <label for="loginInputPassword" class="col-2 col-form-label">Password</label>
+        <div class="col-10">
+            <input even-loginpass type="password" class="form-control" name="txtLoginPass"
+                ng-model="loginPass">
+            <label class="col-form-label">{{errorLoginPass}}</label>
+        </div>
+    </div>
+</form>
+
+<!-- <div class="mb-4 row">
+    <a class="offset-2 col-3" href="#">Forget pass?</a>
+    <a onclick="register()" class="col-3" href="#">Register</a>
+</div> -->
+<label ng-show="1 != 1">ok</label>
+<button type="button" class="btn btn-primary btn-sm offset-2" ng-click="logins(frmLogin.$valid && frmLogin.$dirty)">
+    <label>Register</label>
+    <!-- <label id="label_spinner_login" style="display: none;" class="spinner-border" role="status"> -->
+    <!-- </label> -->
+</button>
