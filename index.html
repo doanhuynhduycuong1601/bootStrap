@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="js/angular/angular.min.js"></script>
+    <script src="js/angular/angular-route.js"></script>
+    <link rel="stylesheet" href="css/run.css">
+    <link rel="stylesheet" href="fontawesome-free-6.2.1-web/css/all.min.css">
+    <style>
+        input.ng-invalid {
+            background-image: url(img/1.png);
+            background-repeat: no-repeat;
+            background-position: center right;
+            background-size: 5%;
+        }
+    </style>
+</head>
+
+<body ng-app="myapp" class="bg-light" ng-controller="myctrl" style="position: relative;">
+    <div class="convenient-bar bg-danger sticky-top">
+        <div class="container">
+            <div class="row">
+                <div class="d-flex justify-content-between">
+                    <div class="left">
+                        <nav class="navbar navbar-expand-lg">
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <!--List category-->
+                                    <li class="nav-item" ng-include="'html/fixed/listCategory.html'"></li>
+
+                                    <li class="nav-item">
+                                        <!-- <a class="nav-link" href="#!/introduce">Introduce</a> -->
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#!/tk">Thống kê</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <label class="nav-link">Follow us on</label>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="" class="nav-link"><i class="fa-brands fa-facebook"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="" class="nav-link"><i class="fa-brands fa-instagram"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <div></div>
+                    <div class="right">
+                        <nav class="navbar navbar-expand-lg">
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item position-relative">
+                                        <button onclick="convenient_bar_notification_span()"
+                                            style="border: none;margin-right: 20px;" type="button"
+                                            data-bs-toggle="dropdown"
+                                            class="btn btn-outline-light nav-link position-relative">
+                                            <i style="margin-right: 8px;" class="fa-regular fa-bell"></i>Notifications
+                                            <span id="convenient-bar_notification_span"
+                                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+                                                2
+                                            </span>
+                                        </button>
+                                        <ul style="width:400px; margin-left: -200px;top: 50px;"
+                                            class="dropdown-menu position-absolute">
+                                            <div class="list-group">
+                                                <a href="#" class="list-group-item list-group-item-action">
+                                                    Nạp card 20</a>
+                                                <a href="#" class="list-group-item list-group-item-action">
+                                                    Tài khoản bị khóa
+                                                </a>
+                                                <a href="#" class="list-group-item list-group-item-action">
+                                                    Thiếu nợ 20
+                                                </a>
+                                                <a href="#" class="list-group-item list-group-item-action">
+                                                    Chuyên bom hàng
+                                                </a>
+                                            </div>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <!-- Button trigger modal -->
+                                        <button style="border: none;" type="button"
+                                            class="btn btn-outline-light nav-link" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop"><i style="margin-right: 8px;"
+                                                class="fa-solid fa-user"></i>Login</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+            <div class="below row">
+                <nav class="navbar navbar-expand-lg">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li style="margin-left: 15px;" class="nav-item">
+                                <a id="home" class="nav-link" aria-current="page" href="#!/home">
+                                    <i class="fa-solid fa-bag-shopping"></i>
+                                    Cuongee
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <div class="input-group">
+                                    <input ng-model="findName" style="width: 700px;" type="text" class="form-control"
+                                        placeholder="Search">
+                                    <a style="background-color: blue;text-decoration: none;"
+                                        href="#!/searchProduct/search_{{findName}}" class="input-group-text">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#!/cart" class="nav-link"><i style="font-size: 35px;color: white;"
+                                        class="fa-sharp fa-solid fa-cart-plus"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mb-3" ng-view>
+
+    </div>
+
+    <div style="background-color: white;">
+        <div class="footer container">
+            <div class="row">
+                <div class="col-4">
+                    <ul class="list-group">
+                        <label class="list-group-item active">Introduce</label>
+                        <li class="list-group-item">Giới thiệu về công ty</li>
+                        <li class="list-group-item">Câu hỏi thường gặp mua hàng</li>
+                        <li class="list-group-item">Chính sách bảo mật</li>
+                        <li class="list-group-item">Quy chế hoạt động</li>
+                    </ul>
+                </div>
+
+                <div class="col-4">
+                    <ul class="list-group">
+                        <label class="list-group-item active">Information</label>
+                        <li class="list-group-item">Tin tuyển dụng</li>
+                        <li class="list-group-item">Tin khuyến mãi</li>
+                        <li class="list-group-item">Hướng dẫn mua onlinet</li>
+                        <li class="list-group-item">Hướng dẫn mua trả góp</li>
+                    </ul>
+                </div>
+
+                <div class="col-4">
+                    <ul class="list-group">
+                        <label class="list-group-item active">Store</label>
+                        <li class="list-group-item">Hệ thống cửa hàng</li>
+                        <li class="list-group-item">Hệ thống bảo hành</li>
+                        <li class="list-group-item">Bán hàng doanh nghiệp</li>
+                        <li class="list-group-item">Giới thiệu máy đổi trả</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--Offcanvas botton-->
+    <div ng-include="'html/product/cartProduct.html'">
+
+    </div>
+
+    <!--Offcanvas left-->
+    <div ng-include="'html/product/reviewProduct.html'">
+
+    </div>
+
+
+    <!-- Modal login -->
+    <div ng-controller="account" class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="btn-close-login" type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div ng-include="'html/account/login.html'">
+                    </div>
+
+                    <!-- <div id="register" ng-include="'html/account/register.html'">
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Login success</strong>
+                <small>1s</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Xin chào tài khoản j đó chúc bạn today happy
+            </div>
+        </div>
+    </div>
+
+    <button onclick="hay()" style="position: fixed;bottom: 20px;right: 10px;">
+        <i class="fa-solid fa-arrow-up"></i></button>
+
+    <script src="js/layout.js"></script>
+    <script>
+        function hay(){
+            window.scrollTo(0, 0);
+        }
+    </script>
+    <!-- <script src="js/list/category.js"></script> -->
+    <!-- <script src="js/list/banner.js"></script> -->
+    <!-- <script src="js/list/product.js"></script> -->
+    <script src="js/product/detailProduct.js"></script>
+    <script src="js/product/product.js"></script>
+    <script src="js/product/search.js"></script>
+    <script src="js/account/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="js/list/order.js"></script>
+    <script src="js/product/tk.js"></script>
+
+    <script src="js/validate.js"></script>
+    <script>
+        document.getElementById('home').click()
+    </script>
+
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+
+</body>
+
+</html>
